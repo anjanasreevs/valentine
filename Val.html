@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For My Valentine ❤️</title>
+  <style>
+    #letterPage {
+      max-height: 80vh;
+      overflow-y: auto;
+      text-align: left;
+    }
+    #letterPage p {
+      margin-bottom: 12px;
+    }
+
+    * { box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .card {
+      background: white;
+      padding: 35px 30px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+      max-width: 420px;
+      width: 90%;
+    }
+    h1, h2 { color: #e63946; }
+    p { color: #555; line-height: 1.6; }
+    input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 10px;
+      border: 1px solid #ddd;
+      font-size: 15px;
+    }
+    button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 14px;
+      font-size: 16px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      background-color: #e63946;
+      color: white;
+      transition: transform 0.3s ease;
+    }
+    button:hover { transform: scale(1.05); }
+    .hidden { display: none; }
+    .buttons { display: flex; justify-content: center; gap: 20px; margin-top: 20px; }
+    .yes { background-color: #e63946; color: white; }
+    .no { background-color: #f1f1f1; color: #333; }
+    .message { display: none; margin-top: 25px; font-size: 18px; color: #e63946; font-weight: 600; }
+  </style>
+</head>
+<body>
+
+  <!-- LOGIN PAGE -->
+  <div class="card" id="loginPage">
+    <h1>Login 💌</h1>
+    <p>This page is only for you ❤️</p>
+    <input type="text" id="username" placeholder="Username" />
+    <input type="password" id="password" placeholder="Password" />
+    <button onclick="login()">Login</button>
+    <p id="error" style="color:red; display:none; margin-top:10px;">Oops… try again 😌</p>
+  </div>
+
+    <!-- LETTER PAGE -->
+  <div class="card hidden" id="letterPage">
+    <h2>Hi Shuttu ❤️</h2>
+    <p>
+      I dont know how we beacame so close in this short span of time. It all started so randomly — you getting noticed by my mom,
+      and then an insta friend request just to see your profile.
+    </p>
+    <p>
+      I never thought you would mean so much to me, or that we would even start talking the way we did.
+      But here we are — and I’m honestly so grateful for it.
+    </p>
+    <p>
+      And when I was creating this website, we actually got into a small conflict about my dress.
+      I think this is the first time I truly disliked something you said, and it honestly hurts me.
+      I felt really bad when I saw your message — maybe because I didn’t expect it from you.
+      I thought you would say something good after seeing the video.
+    </p>
+    <p>
+      I love wearing and trying new dresses that I’m comfortable in. I enjoy taking photos and videos in it.
+      I know it’s not always practical to wear those kinds of clothes here.
+      But when you think about it in a very conservative way, it makes me feel bad.
+    </p>
+    <p>
+    And I really wanted to talk to you.
+    Why did you go without calling me😢? From the evening onwards, I was waiting for you.
+    I never thought you would leave without talking to me.
+    It really hurts me.
+    </p>
+    <p>
+      Still, I want you to know how much you matter to me.
+      I’m really happy to have you in my life, and I truly believe we can grow, understand each other better,
+      and build a beautiful life together.
+    </p>
+    <p><strong>I love you and I miss you so much ❤️</strong></p>
+    <button onclick="goToValentine()">Next 💕</button>
+  </div>
+
+  <!-- VALENTINE PAGE -->
+  <div class="card hidden" id="valentinePage">
+    <h1>Hey Aswin Mohan 💖</h1>
+    <p>I have a very important question for you…</p>
+    <h2>Will you be my Valentine? 💌</h2>
+    <div class="buttons">
+      <button class="yes" onclick="sayYes()">Yes 💕</button>
+      <button class="no" onmouseover="moveNo()" onclick="moveNo()">No 🙈</button>
+    </div>
+    <div class="message" id="message">
+      Yay! I knew it 😍❤️<br />
+      You’re stuck with me now 😌❤️
+    </div>
+  </div>
+
+  
+
+  <script>
+    function login() {
+      const user = document.getElementById('username').value;
+      const pass = document.getElementById('password').value;
+      if (user === 'shuttu' && pass === 'ilovemybaby') {
+        document.getElementById('loginPage').classList.add('hidden');
+        document.getElementById('letterPage').classList.remove('hidden');
+      } else {
+        document.getElementById('error').style.display = 'block';
+      }
+    }
+
+    function goToValentine() {
+      document.getElementById('letterPage').classList.add('hidden');
+      document.getElementById('valentinePage').classList.remove('hidden');
+    }
+
+    function sayYes() {
+      document.getElementById('message').style.display = 'block';
+    }
+
+    
+
+    function moveNo() {
+      const button = document.querySelector('.no');
+      const x = Math.random() * 200 - 100;
+      const y = Math.random() * 200 - 100;
+      button.style.transform = `translate(${x}px, ${y}px)`;
+    }
+  </script>
+
+</body>
+</html>
